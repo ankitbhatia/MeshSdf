@@ -17,9 +17,10 @@ namespace MeshSdf
 		Vec3 PseudoNormal_Edge(NearestTriEntity ent, int tri) const;
 		Vec3 PseudoNormal(NearestTriEntity nearestEntity, int nearestTri) const;
 
-	public:
+      public:
 
 		explicit SignedDistance(Mesh mesh);
 		double operator()(double x, double y, double z) const;
+        Vec3 normal(double x, double y, double z) const;
 	};
 }

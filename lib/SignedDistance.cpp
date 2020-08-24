@@ -22,6 +22,13 @@ double SignedDistance::operator()(double x, double y, double z) const
 	return sign * udinfo.udist;
 }
 
+Vec3 SignedDistance::normal(double x, double y, double z) const
+{
+    auto udinfo = usdist(x, y, z, 0);
+
+    return PseudoNormal(udinfo.triEntityNearest, udinfo.triNearest);
+}
+
 Vec3 SignedDistance::PseudoNormal_Vertex(int vnearest) const
 {
 	Vec3 pnormal{ 0.0, 0.0, 0.0 };
